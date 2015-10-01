@@ -9,9 +9,10 @@
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="/components/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="styles/app.css">
 </head>
-<body class="container">
+<body class="container" ng-controller="tictactoeCtrl">
   <div class="row">
 
     <div class="page-header text-center">
@@ -22,20 +23,11 @@
       <div class="panel-body">
         <table class="table table-bordered">
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr ng-repeat="row in board.values">
+              <td ng-repeat="cell in row" 
+                  ng-click="click(cell)">
+                  <i ng-class="cell.icon"></i>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -45,5 +37,7 @@
   
   <script src="components/angular/angular.js"></script>
   <script src="app.js"></script>
+  <script src="controllers/tictactoeCtrl.js"></script>
+  <script src="models/entities.js"></script>
 </body>
 </html>
