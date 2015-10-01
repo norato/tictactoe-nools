@@ -1,3 +1,13 @@
 td {
   height: 125px;
-} 
+}
+.fa-5x {
+  font-size: 8em;
+}
+.red {
+  color: #FF0000;
+}
+
+.blue {
+  color: #0048FF;
+}

@@ -24,7 +24,8 @@
         <table class="table table-bordered">
           <tbody>
             <tr ng-repeat="row in board.values">
-              <td ng-repeat="cell in row" 
+              <td class="col-lg-4 text-center"
+                  ng-repeat="cell in row" 
                   ng-click="click(cell)">
                   <i ng-class="cell.icon"></i>
               </td>
