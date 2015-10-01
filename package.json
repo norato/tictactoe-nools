@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "karma start config/karma.config.js --single-run --browsers PhantomJS",
+    "postinstall": "bower cache clean && bower install",
     "start": "node server.js"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/norato/tictactoe-nools#readme",
   "dependencies": {
+    "bower": "^1.5.3",
     "express": "^4.13.3"
   },
   "devDependencies": {
@@ -27,6 +29,6 @@
   },
   "engines": {
     "node": "0.12.6",
-    "npm": "2.11.2" 
+    "npm": "2.11.2"
   }
 }
