@@ -2,12 +2,42 @@
 <html ng-app="tictactoe">
 <head>
   <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="styles/app.css">
 </head>
-<body>
-  <h1>Works</h1>
+<body class="container">
+  <div class="row">
 
-  <input type="text" ng-model='text'>
-  {{text}}
+    <div class="page-header text-center">
+      <h1>Tic Tac Toe<small>(have fun!)</small></h1>
+    </div>
+
+    <div class="panel panel-default col-lg-7 col-lg-offset-2">
+      <div class="panel-body">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>  
+  
   <script src="components/angular/angular.js"></script>
   <script src="app.js"></script>
 </body>
