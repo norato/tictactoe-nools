@@ -1,0 +1,19 @@
+{
+  "name": "tictactoe-nools",
+  "version": "0.0.0",
+  "homepage": "https://github.com/norato/tictactoe-nools",
+  "authors": [
+    "Felipe Norato Lacerda <fnoratol@gmail.com>"
+  ],
+  "description": "",
+  "main": "app.js",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

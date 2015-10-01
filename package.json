@@ -1,0 +1,23 @@
+{
+  "name": "tictactoe-nools",
+  "version": "0.0.0",
+  "description": "TicTacToe Nools POC",
+  "main": "app.js",
+  "scripts": {
+    "test": "karma start config/karma.config.js --single-run --browsers PhantomJS", 
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norato/tictactoe-nools.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/norato/tictactoe-nools/issues"
+  },
+  "homepage": "https://github.com/norato/tictactoe-nools#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
