@@ -20,25 +20,45 @@
     </div>
 
     <div class="panel panel-default col-xs-12 col-lg-7 col-lg-offset-2 ">
-      <div class="panel-body">
-        <table class="table table-bordered">
-          <tbody>
-            <tr ng-repeat="row in board.values">
-              <td class="col-xs-4 text-center"
-                  ng-repeat="cell in row" 
-                  ng-click="click(cell)">
-                  <i ng-class="cell.Icon"></i>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <button type="button" 
-                class="btn btn-primary col-xs-offset-4"
-                ng-click="newGame()">
-                New Game
-        </button>
-      </div>
+      <table class="table table-bordered">
+        <tbody>
+          <tr ng-repeat="row in board.values">
+            <td class="col-xs-4 text-center"
+                ng-repeat="cell in row" 
+                ng-click="click(cell)">
+                <i ng-class="cell.Icon"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
     </div>
+
+    <div class="col-lg-3">
+      <h3 class="text-center">Score</h3>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-4 control-label">Player 1</label>
+          <div class="col-sm-3">
+            <span class="form-control">0</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-4 control-label">Player 2</label>
+          <div class="col-sm-3">
+            <span class="form-control">0</span>
+          </div>
+        </div>
+
+        <button type="button" 
+              class="btn btn-primary col-xs-offset-4"
+              ng-click="newGame()">
+              New Game
+      </button>
+      </form>
+    </div>
+
+
   </div>  
   
   <script src="components/jquery/dist/jquery.js"></script>
