@@ -19,6 +19,9 @@
   "dependencies": {
     "angular": "~1.4.7",
     "bootstrap": "~3.3.5",
-    "font-awesome": "~4.4.0"
+    "font-awesome": "~4.4.0",
+    "lodash": "~3.10.1",
+    "angular-mocks": "~1.4.7",
+    "nools": "*"
   }
 }

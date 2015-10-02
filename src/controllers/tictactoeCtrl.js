@@ -1,5 +1,5 @@
 APP.angular.controller('tictactoeCtrl', 
-  ['$scope',tictactoeCtrl]);
+  ['$scope', tictactoeCtrl]);
 
 function tictactoeCtrl ($scope) {
 
@@ -42,5 +42,4 @@ function tictactoeCtrl ($scope) {
   function createIcon (player) {
     return [player.Icon , player.Collor].join(" ");
   }
-
 }

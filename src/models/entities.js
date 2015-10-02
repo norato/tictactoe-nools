@@ -18,8 +18,17 @@ var entities = function () {
 
   Player.prototype.constructor = Player;
 
+ function Game () {
+      this.field  = null;
+      this.move   = null;
+      this.winner = null;
+      this.ends   = false; 
+      this.icon   = 0;
+  }
+
   return {
     Board  : Board,
+    Game : Game,
     Player : Player
   };
 }

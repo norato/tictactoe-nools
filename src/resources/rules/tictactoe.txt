@@ -1,0 +1,405 @@
+rule WinnerLine0 {
+  when {
+    g : Game g.field[0][0] === g.field[0][1] &&  g.field[0][0] === g.field[0][2] && isFalse(g.ends) && isNotNull(g.field[0][0]); 
+  }
+  then {
+    modify(g, function  () {
+      console.log("WinnerLine0");
+      g.ends = true;
+    });
+  }
+}
+rule WinnerLine1 {
+  when {
+    g : Game g.field[1][0] === g.field[1][1] &&  g.field[1][0] === g.field[1][2] && isFalse(g.ends) && isNotNull(g.field[1][0]); 
+  }
+  then {
+    modify(g, function  () {
+      console.log("WinnerLine1");
+      g.ends = true;
+    });
+  }
+}
+rule WinnerLine2 {
+  when {
+    g : Game g.field[2][0] === g.field[2][1] &&  g.field[2][0] === g.field[2][2] && isFalse(g.ends) && isNotNull(g.field[2][0]); 
+  }
+  then {
+    modify(g, function  () {
+      console.log("WinnerLine2");
+      g.ends = true;
+    });
+  }
+}
+rule WinnerColumn0 {
+  when {
+    g : Game g.field[0][0] === g.field[1][0] &&  g.field[2][0] === g.field[0][0] && isFalse(g.ends) && isNotNull(g.field[0][0]); 
+  }
+  then {
+    modify(g, function  () {
+      console.log("WinnerColumn0");
+      g.ends = true;
+    });
+  }
+}
+rule WinnerColumn1 {
+  when {
+    g : Game g.field[0][1] === g.field[1][1] &&  g.field[2][1] === g.field[0][1] && isFalse(g.ends) && isNotNull(g.field[0][1]); 
+  }
+  then {
+    modify(g, function  () {
+      console.log("WinnerColumn1");
+      g.ends = true;
+    });
+  }
+}
+rule WinnerColumn2 {
+  when {
+    g : Game g.field[0][2] === g.field[1][2] &&  g.field[2][2] === g.field[0][2] && isFalse(g.ends) && isNotNull(g.field[0][2]); 
+  }
+  then {
+    modify(g, function  () {
+      console.log("WinnerColumn2");
+      g.ends = true;
+    });
+  }
+}
+rule WinnerDiagonal1 {
+  when {
+    g : Game g.field[0][0] === g.field[1][1] &&  g.field[2][2] === g.field[0][0] && isFalse(g.ends) && isNotNull(g.field[0][0]); 
+  }
+  then {
+    modify(g, function  () {
+      console.log("WinnerDiagonal1");
+      g.ends = true;
+    });
+  }
+}
+rule WinnerDiagonal2 {
+  when {
+    g : Game g.field[0][2] === g.field[1][1] &&  g.field[2][0] === g.field[0][2] && isFalse(g.ends) && isNotNull(g.field[0][2]); 
+  }
+  then {
+    modify(g, function  () {
+      console.log("WinnerDiagonal2");
+      g.ends = true;
+    });
+  }
+}
+
+//Move00
+rule 'Move00 in Line 0 only line'{
+  when{
+    g : Game isNotNull(g.field[0][1]) && g.field[0][1] === g.field[0][2] && isNull(g.field[0][0]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move00 in Line 0 only line');
+      g.move = {i:0, j:0};
+      g.field[0][0] = 0;
+    }); 
+  }
+}
+
+rule 'Move00 in Column 0 only Column'{
+  when{
+    g : Game isNotNull(g.field[1][0]) && g.field[1][0] === g.field[2][0] && isNull(g.field[0][0]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move00 in Column 0 only Column');
+      g.move = {i:0, j:0};
+      g.field[0][0] = 0;
+    }); 
+  }
+}
+
+rule 'Move00 in Diagonal 0 only Diagonal'{
+  when{
+    g : Game isNotNull(g.field[1][1]) && g.field[2][2] === g.field[1][1] && isNull(g.field[0][0]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move00 in Diagonal 0 only Diagonal');
+      g.move = {i:0, j:0};
+      g.field[0][0] = 0;
+    });
+  }
+}
+
+//Move01
+rule 'Move01 in Line 0 only line'{
+  when{
+    g : Game isNotNull(g.field[0][0]) && g.field[0][0] === g.field[0][2] && isNull(g.field[0][1]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move01 in Line 0 only line');
+      g.move = {i:0, j:1};
+      g.field[0][1] = 0;
+    });
+  }
+}
+rule 'Move01 in Column 1 only Column'{
+  when{
+    g : Game isNotNull(g.field[1][1]) && g.field[1][1] === g.field[2][1] && isNull(g.field[0][1]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move01 in Column 1 only Column');
+      g.move = {i:0, j:1};
+      g.field[0][1] = 0;
+    });
+  }
+}
+
+//Move02
+rule 'Move02 in Line 0 only line'{
+  when{
+    g : Game isNotNull(g.field[0][0]) && g.field[0][0] === g.field[0][1] && isNull(g.field[0][2]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move02 in Line 0 only line');
+      g.move = {i:0, j:2};
+      g.field[0][2] = 0;
+      g.ends = true;
+    });
+  }
+}
+rule 'Move02 in Column 2 only Column'{
+  when{
+    g : Game isNotNull(g.field[2][2]) && g.field[2][2] === g.field[1][2] && isNull(g.field[0][2]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move 02 in Column 2 only Column');
+      g.move = {i:0, j:2};
+      g.field[0][2] = 0;
+      g.ends = true;
+    });
+  }
+}
+rule 'Move02 in Diagonal 2 only Diagonal'{
+  when{
+    g : Game isNotNull(g.field[2][0]) && g.field[2][0] === g.field[1][1] && isNull(g.field[0][2]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move02 in Diagonal 2 0 only Diagonal');
+      g.move = {i:0, j:2};
+      g.field[0][2] = 0;
+      g.ends = true;
+    });
+  }
+}
+
+//Move10
+rule 'Move10 in Line 1 only line'{
+  when{
+    g : Game isNotNull(g.field[1][1]) && g.field[1][1] === g.field[1][2] && isNull(g.field[1][0]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move10 in Line 1 only line');
+      g.move = {i:1, j:0};
+      g.field[1][0] = 0;
+      g.ends = true;
+    });
+  }
+}
+rule 'Move10 in Column 0 only Column'{
+  when{
+    g : Game isNotNull(g.field[0][0]) && g.field[0][0] === g.field[2][0] && isNull(g.field[1][0]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move10 in Column 0 only Column');
+      g.move = {i:1, j:0};
+      g.field[1][0] = 0;
+      g.ends = true;
+    });
+  }
+}
+
+//Move11
+rule 'Move11 in Line 1 only Line'{
+  when{
+    g : Game isNotNull(g.field[1][0]) && g.field[1][0] === g.field[1][2] && isNull(g.field[1][1]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move11 in Line 1 only Line');
+      g.move = {i:1, j:1};
+      g.field[1][1] = 0;
+      g.ends = true;
+    });
+  }
+}
+rule 'Move11 in Column 1 only Column'{
+  when{
+    g : Game isNotNull(g.field[0][1]) && g.field[0][1] === g.field[2][1] && isNull(g.field[1][1]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move11 in Column 1 only Column');
+      g.move = {i:1, j:1};
+      g.field[1][1] = 0;
+      g.ends = true;
+    });
+  }
+}
+rule 'Move11 in Diagonal 1 only Diagonal'{
+  when{
+    g : Game isNotNull(g.field[0][0]) && g.field[0][0] === g.field[2][2] && isNull(g.field[1][1]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move11 in Diagonal 1 only Diagonal');
+      g.move = {i:1, j:1};
+      g.field[1][1] = 0;
+      g.ends = true;
+    });
+  }
+}
+rule 'Move11 in Diagonal 2 only Diagonal'{
+  when{
+    g : Game isNotNull(g.field[0][2]) && g.field[0][2] === g.field[2][0] && isNull(g.field[1][1]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move11 in Diagonal 2 only Diagonal');
+      g.move = {i:1, j:1};
+      g.field[1][1] = 0;
+      g.ends = true;
+    });
+  }
+}
+
+//Move12
+rule 'Move12 in Line 1 only Line'{
+  when{
+    g : Game isNotNull(g.field[1][0]) && g.field[1][0] === g.field[1][1] && isNull(g.field[1][2]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move12 in Line 1 only Line');
+      g.move = {i:1, j:2};
+      g.field[1][2] = 0;
+    });
+  }
+}
+rule 'Move12 in Column2 only Column'{
+  when{
+    g : Game isNotNull(g.field[0][2]) && g.field[0][2] === g.field[2][2] && isNull(g.field[1][2]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move12 in Column2 only Column');
+      g.move = {i:1, j:2};
+      g.field[1][2] = 0;
+    });
+  }
+}
+
+//Move20
+rule 'Move20 in Line 2 only Line'{
+  when{
+    g : Game isNotNull(g.field[2][1]) && g.field[2][1] === g.field[2][2] && isNull(g.field[2][0]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move20 in Line 2 only Line');
+      g.move = {i:2, j:0};
+      g.field[2][0] = 0;
+    });
+  }
+}
+rule 'Move20 in Column 0 only Column'{
+  when{
+    g : Game isNotNull(g.field[0][0]) && g.field[0][0] === g.field[1][0] && isNull(g.field[2][0]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move20 in Column 0 only Column');
+      g.move = {i:2, j:0};
+      g.field[2][0] = 0;
+    });
+  }
+}
+rule 'Move20 in Diagonal2 only Diagonal'{
+  when{
+    g : Game isNotNull(g.field[0][2]) && g.field[0][2] === g.field[1][1] && isNull(g.field[2][0]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move20 in Diagonal2 only Diagonal');
+      g.move = {i:2, j:0};
+      g.field[2][0] = 0;
+    });
+  }
+}
+
+//Move21
+rule 'Move21 in Line 2 only Line'{
+  when{
+    g : Game isNotNull(g.field[2][0]) && g.field[2][0] === g.field[2][2] && isNull(g.field[2][1]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move21 in Line 2 only Line');
+      g.move = {i:2, j:1};
+      g.field[2][1] = 0;
+    });
+  }
+}
+rule 'Move21 in Column 1 only Column'{
+  when{
+    g : Game isNotNull(g.field[0][1]) && g.field[0][1] === g.field[1][1] && isNull(g.field[2][1]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move21 in Column 1 only Column');
+      g.move = {i:2, j:1};
+      g.field[2][1] = 0;
+    });
+  }
+}
+
+//Move22
+rule 'Move22 in Line 2 only Line'{
+  when{
+    g : Game isNotNull(g.field[2][0]) && g.field[2][0] === g.field[2][1] && isNull(g.field[2][2]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move22 in Line 2 only Line');
+      g.move = {i:2, j:2};
+      g.field[2][2] = 0;
+    });
+  }
+}
+rule 'Move22 in Column 2 only Column'{
+  when{
+    g : Game isNotNull(g.field[0][2]) && g.field[0][2] === g.field[1][2] && isNull(g.field[2][2]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move22 in Column 2 only Column');
+      g.move = {i:2, j:2};
+      g.field[2][2] = 0;
+    });
+  }
+}
+rule 'Move22 in Diagonal 1 only Diagonal'{
+  when{
+    g : Game isNotNull(g.field[0][2]) && g.field[0][0] === g.field[1][1] && isNull(g.field[2][2]) && isFalse(g.ends)
+  }
+  then{
+    modify(g, function  () {
+      console.log('Move22 in Diagonal 1 only Diagonal');
+      g.move = {i:2, j:2};
+      g.field[2][2] = 0;
+    });
+  }
+}
