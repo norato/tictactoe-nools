@@ -28,6 +28,7 @@ var entities = function () {
     this.Name   = null;
     this.Icon   = null;
     this.Collor = null;
+    this.Score  = 0;
   }
 
   Player.prototype.constructor = Player;

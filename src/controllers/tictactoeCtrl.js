@@ -4,11 +4,12 @@ APP.angular.controller('tictactoeCtrl',
 function tictactoeCtrl ($scope, tictactoe) {
 
   var position;
+  $scope.Player1 = setPlayer("fa fa-times fa-5x", "red", "Player1");
+  $scope.Player2 = setPlayer("fa fa-genderless fa-5x", "blue", "Player2");
+
+  $scope.Players = [$scope.Player1, $scope.Player2];
   $scope.newGame = function () {
     $scope.board = new APP.entities.Board();
-    $scope.Players = [
-      setPlayer("fa fa-times fa-5x", "red", "Player1"),
-      setPlayer("fa fa-genderless fa-5x", "blue", "Player2")];
     position = 0;
 
   }
@@ -48,6 +49,7 @@ function tictactoeCtrl ($scope, tictactoe) {
 
   function callBack() {
     if($scope.board.winner){
+      $scope.board.winner.Score++; 
       alert($scope.board.winner.Name);
     }
   }
