@@ -12,22 +12,24 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        '../src/components/jquery/dist/jquery.js',
-        '../src/components/angular/angular.js',
-        '../src/components/angular-mocks/angular-mocks.js',
-        '../src/components/lodash/lodash.js',
-        '../src/components/nools/nools.js',
-        '../src/app.js',
-        '../src/controllers/**/*.js',
-        '../src/services/**/*.js',
-        '../src/models/**/*.js',
-        // '../src/resources/**/*.txt',
-        '../test/**/*Spec.js'
+        { pattern: '../src/components/jquery/dist/jquery.js',watched: false, included: true, served: true},
+        { pattern: '../src/components/angular/angular.js',watched: false, included: true, served: true},
+        { pattern: '../src/components/angular-mocks/angular-mocks.js',watched: false, included: true, served: true},
+        { pattern: '../src/components/lodash/lodash.js',watched: false, included: true, served: true},
+        { pattern: '../src/components/nools/nools.js',watched: false, included: true, served: true},
+        
+        { pattern: '../src/app.js', watched: false, included: true, served: true},
+        { pattern: '../src/controllers/**/*.js', watched: false, included: true, served: true},
+        { pattern: '../src/services/**/*.js', watched: false, included: true, served: true},
+        { pattern: '../src/models/**/*.js', watched: false, included: true, served: true},
+        
+        { pattern: '../src/resources/rules/*.txt',  watched: false, included: false, served: true},
+        { pattern: '../test/**/*Spec.js', watched: false, included: true, served: true}
     ],
 
-    // proxies : {
-    //     'resources/rules/tictactoe.txt': '/base/src/resources/rules/tictactoe.txt'
-    // },
+    proxies : {
+        'resources/rules/tictactoe.txt': '/base/src/resources/rules/tictactoe.txt'
+    },
 
 
     // list of files to exclude
@@ -61,7 +63,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
     plugins: ['karma-jasmine', 'karma-phantomjs-launcher'],
 

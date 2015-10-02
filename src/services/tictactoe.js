@@ -15,6 +15,7 @@ function tictactoe( _ ) {
             rules = data;
         },
         error: function ($xhr, status, err) {
+            console.log('Could not load rules', status, err);
             throw new Error('Could not load rules');
         }
     });
