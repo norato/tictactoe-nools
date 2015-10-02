@@ -25,7 +25,7 @@ function tictactoe( _ ) {
         flow=nools.compile(rules, {
             define: {
                 //The person class the flow should use
-                Game   : APP.entities.Game 
+                Board   : APP.entities.Board 
             },
             scope: {
                 //the logger you want your flow to use.
@@ -39,10 +39,10 @@ function tictactoe( _ ) {
         flow=nools.getFlow('tictactoe');
     }
 
-    self.getMove = function (game,successCallback)
+    self.getMove = function (board,successCallback)
     {
         var session = flow.getSession();
-        session.assert(game);
+        session.assert(board);
 
         session.match(function(err){
             if(err){

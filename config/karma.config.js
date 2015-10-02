@@ -12,19 +12,19 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        { pattern: '../src/components/jquery/dist/jquery.js',watched: false, included: true, served: true},
-        { pattern: '../src/components/angular/angular.js',watched: false, included: true, served: true},
-        { pattern: '../src/components/angular-mocks/angular-mocks.js',watched: false, included: true, served: true},
-        { pattern: '../src/components/lodash/lodash.js',watched: false, included: true, served: true},
-        { pattern: '../src/components/nools/nools.js',watched: false, included: true, served: true},
+        { pattern: '../src/components/jquery/dist/jquery.js',           watched: false, included: true,  served: true},
+        { pattern: '../src/components/angular/angular.js',              watched: false, included: true,  served: true},
+        { pattern: '../src/components/angular-mocks/angular-mocks.js',  watched: false, included: true,  served: true},
+        { pattern: '../src/components/lodash/lodash.js',                watched: false, included: true,  served: true},
+        { pattern: '../src/components/nools/nools.js',                  watched: false, included: true,  served: true},
         
-        { pattern: '../src/app.js', watched: false, included: true, served: true},
-        { pattern: '../src/controllers/**/*.js', watched: false, included: true, served: true},
-        { pattern: '../src/services/**/*.js', watched: false, included: true, served: true},
-        { pattern: '../src/models/**/*.js', watched: false, included: true, served: true},
+        { pattern: '../src/app.js',                                     watched: false, included: true,  served: true},
+        { pattern: '../src/controllers/**/*.js',                        watched: false, included: true,  served: true},
+        { pattern: '../src/services/**/*.js',                           watched: false, included: true,  served: true},
+        { pattern: '../src/models/**/*.js',                             watched: false, included: true,  served: true},
         
-        { pattern: '../src/resources/rules/*.txt',  watched: false, included: false, served: true},
-        { pattern: '../test/**/*Spec.js', watched: false, included: true, served: true}
+        { pattern: '../src/resources/**/*.txt',                      watched: false, included: false, served: true},
+        { pattern: '../test/**/*Spec.js',                               watched: false, included: true,  served: true}
     ],
 
     proxies : {

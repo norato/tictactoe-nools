@@ -1,7 +1,7 @@
 APP.angular.controller('tictactoeCtrl', 
-  ['$scope', tictactoeCtrl]);
+  ['$scope', 'tictactoe', tictactoeCtrl]);
 
-function tictactoeCtrl ($scope) {
+function tictactoeCtrl ($scope, tictactoe) {
 
   var position;
   $scope.newGame = function () {
@@ -10,6 +10,7 @@ function tictactoeCtrl ($scope) {
       setPlayer("fa fa-times fa-5x", "red", "Player1"),
       setPlayer("fa fa-genderless fa-5x", "blue", "Player2")];
     position = 0;
+
   }
 
   $scope.newGame();
@@ -18,6 +19,7 @@ function tictactoeCtrl ($scope) {
     if (!cell.Player) {
       cell.Player = getPlayer();
       cell.icon = createIcon(cell.Player);
+      tictactoe.getMove($scope.board, callBack);
     };
   };
 
@@ -30,16 +32,23 @@ function tictactoeCtrl ($scope) {
   };
 
   function getPlayer() {
-    if (position < $scope.Players.length) {
+    if (position <= ($scope.Players.length - 1) ) {
+      var player = $scope.Players[position];
       position++;
-      return $scope.Players[position-1];
+      return player;
     } else {
-      position = 0;
-      return $scope.Players[position];
+      position = 1;
+      return $scope.Players[position -1];
     }
   }
 
   function createIcon (player) {
     return [player.Icon , player.Collor].join(" ");
+  }
+
+  function callBack() {
+    if($scope.board.winner){
+      alert($scope.board.winner.Name);
+    }
   }
 }

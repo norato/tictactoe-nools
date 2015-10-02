@@ -6,6 +6,9 @@ var entities = function () {
       [{}, {}, {}],
       [{}, {}, {}]
     ];
+    this.ends = false;
+    this.winner = null;
+    
   }
 
   Board.prototype.constructor = Board;
@@ -21,7 +24,6 @@ var entities = function () {
  function Game () {
       this.field  = null;
       this.move   = null;
-      this.winner = null;
       this.ends   = false; 
       this.icon   = 0;
   }
