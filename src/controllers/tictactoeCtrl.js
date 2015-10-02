@@ -18,7 +18,7 @@ function tictactoeCtrl ($scope, tictactoe) {
   $scope.click = function (cell) {
     if (!cell.Player) {
       cell.Player = getPlayer();
-      cell.icon = createIcon(cell.Player);
+      cell.Icon = createIcon(cell.Player);
       tictactoe.getMove($scope.board, callBack);
     };
   };

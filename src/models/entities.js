@@ -1,17 +1,28 @@
 var entities = function () {
 
   function Board () {
-    this.values = [
-      [{}, {}, {}],
-      [{}, {}, {}],
-      [{}, {}, {}]
-    ];
+    this.values = initBoard();
     this.ends = false;
     this.winner = null;
     
   }
-
   Board.prototype.constructor = Board;
+
+  function Cell() {
+    this.Player = null;
+    this.Icon = null;
+  }
+
+  function initBoard() {
+    var board = []
+    for (var row = 0; row <= 2 ; row++) {
+      board[row] = [];
+      for (var cell = 0; cell <= 2 ; cell++) {
+        board[row][cell] = new Cell();
+      }
+    }
+    return board;
+  }
 
   function Player () {
     this.Name   = null;
@@ -21,16 +32,8 @@ var entities = function () {
 
   Player.prototype.constructor = Player;
 
- function Game () {
-      this.field  = null;
-      this.move   = null;
-      this.ends   = false; 
-      this.icon   = 0;
-  }
-
   return {
     Board  : Board,
-    Game : Game,
     Player : Player
   };
 }

@@ -10,3 +10,16 @@ rule WinnerLine0 {
     });
   }
 }
+
+rule WinnerLine1 {
+  when {
+    b : Board b.values[1][0].Player === b.values[1][1].Player &&  b.values[1][0].Player === b.values[1][2].Player && isFalse(b.ends) && isNotNull(b.values[1][0].Player); 
+  }
+  then {
+    modify(b, function  () {
+      console.log("WinnerLine1");
+      b.winner = b.values[1][0].Player;
+      b.ends = true;
+    });
+  }
+}
