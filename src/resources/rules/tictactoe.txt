@@ -4,7 +4,6 @@ rule WinnerLine0 {
   }
   then {
     modify(b, function  () {
-      console.log("WinnerLine0");
       b.winner = b.values[0][0].Player;
       b.ends = true;
     });
@@ -17,8 +16,78 @@ rule WinnerLine1 {
   }
   then {
     modify(b, function  () {
-      console.log("WinnerLine1");
       b.winner = b.values[1][0].Player;
+      b.ends = true;
+    });
+  }
+}
+
+rule WinnerLine2 {
+  when {
+    b : Board b.values[2][0].Player === b.values[2][1].Player &&  b.values[2][0].Player === b.values[2][2].Player && isFalse(b.ends) && isNotNull(b.values[2][0].Player); 
+  }
+  then {
+    modify(b, function  () {
+      b.winner = b.values[2][0].Player;
+      b.ends = true;
+    });
+  }
+}
+
+rule WinnerColumn0 {
+  when {
+    b : Board b.values[0][0].Player === b.values[1][0].Player &&  b.values[0][0].Player === b.values[2][0].Player && isFalse(b.ends) && isNotNull(b.values[0][0].Player); 
+  }
+  then {
+    modify(b, function  () {
+      b.winner = b.values[0][0].Player;
+      b.ends = true;
+    });
+  }
+}
+
+rule WinnerColumn1 {
+  when {
+    b : Board b.values[0][1].Player === b.values[1][1].Player &&  b.values[0][1].Player === b.values[2][1].Player && isFalse(b.ends) && isNotNull(b.values[0][1].Player); 
+  }
+  then {
+    modify(b, function  () {
+      b.winner = b.values[0][1].Player;
+      b.ends = true;
+    });
+  }
+}
+rule WinnerColumn2 {
+  when {
+    b : Board b.values[0][2].Player === b.values[1][2].Player &&  b.values[0][2].Player === b.values[2][2].Player && isFalse(b.ends) && isNotNull(b.values[0][2].Player); 
+  }
+  then {
+    modify(b, function  () {
+      b.winner = b.values[0][2].Player;
+      b.ends = true;
+    });
+  }
+}
+
+rule WinnerDiagonal1 {
+  when {
+    b : Board b.values[0][0].Player === b.values[1][1].Player &&  b.values[0][0].Player === b.values[2][2].Player && isFalse(b.ends) && isNotNull(b.values[0][0].Player); 
+  }
+  then {
+    modify(b, function  () {
+      b.winner = b.values[0][0].Player;
+      b.ends = true;
+    });
+  }
+}
+
+rule WinnerDiagonal2 {
+  when {
+    b : Board b.values[0][2].Player === b.values[1][1].Player &&  b.values[0][2].Player === b.values[2][0].Player && isFalse(b.ends) && isNotNull(b.values[0][2].Player); 
+  }
+  then {
+    modify(b, function  () {
+      b.winner = b.values[0][2].Player;
       b.ends = true;
     });
   }
