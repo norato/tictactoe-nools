@@ -16,7 +16,7 @@
   <div class="row">
 
     <div class="page-header text-center">
-      <h1>Tic Tac Toe<small>(have fun!)</small></h1>
+      <h1>Tic Tac Toe <small>(have fun!)</small></h1>
     </div>
 
     <div class="panel panel-default col-xs-12 col-lg-7 col-lg-offset-2 ">
@@ -24,7 +24,7 @@
         <table class="table table-bordered">
           <tbody>
             <tr ng-repeat="row in board.values">
-              <td class="col-lg-4 text-center"
+              <td class="col-xs-4 text-center"
                   ng-repeat="cell in row" 
                   ng-click="click(cell)">
                   <i ng-class="cell.icon"></i>
@@ -33,7 +33,7 @@
           </tbody>
         </table>
         <button type="button" 
-                class="btn btn-primary col-xs-offset-5"
+                class="btn btn-primary col-xs-offset-4"
                 ng-click="newGame()">
                 New Game
         </button>

@@ -10,8 +10,17 @@ var entities = function () {
 
   Board.prototype.constructor = Board;
 
+  function Player () {
+    this.Name   = null;
+    this.Icon   = null;
+    this.Collor = null;
+  }
+
+  Player.prototype.constructor = Player;
+
   return {
-    Board : Board
+    Board  : Board,
+    Player : Player
   };
 }
 
