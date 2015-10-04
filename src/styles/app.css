@@ -11,3 +11,17 @@ td {
 .blue {
   color: #0048FF;
 }
+.score {
+  outline: 1px solid orange;
+}
+.actions{
+  margin-top: 15px;
+}
+.winner i{
+  margin-top: 12px; 
+}
+.player i {
+  position: absolute;;
+  margin-left: 3px;
+  margin-top: 2px;
+}

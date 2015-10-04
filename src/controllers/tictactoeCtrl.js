@@ -4,8 +4,8 @@ APP.angular.controller('tictactoeCtrl',
 function tictactoeCtrl ($scope, tictactoe) {
 
   var position;
-  $scope.Player1 = setPlayer("fa fa-times fa-5x", "red", "Player1");
-  $scope.Player2 = setPlayer("fa fa-genderless fa-5x", "blue", "Player2");
+  $scope.Player1 = setPlayer("fa fa-times", "red", "Player1");
+  $scope.Player2 = setPlayer("fa fa-genderless", "blue", "Player2");
 
   $scope.Players = [$scope.Player1, $scope.Player2];
   $scope.newGame = function () {
@@ -17,20 +17,24 @@ function tictactoeCtrl ($scope, tictactoe) {
   $scope.newGame();
   
   $scope.click = function (cell) {
-    if (!cell.Player) {
+    if ($scope.board.winner) {
+      $scope.newGame();
+    } else if (!cell.Player) {
       cell.Player = getPlayer();
-      cell.Icon = createIcon(cell.Player);
+      cell.Icon = cell.Player.getIcon();
       tictactoe.getMove($scope.board, callBack);
-    };
+    }
   };
 
-  function setPlayer (icon, collor, name) {
+  function setPlayer (icon, color, name) {
     var player    = new APP.entities.Player();
     player.Name   = name;
     player.Icon   = icon
-    player.Collor = collor;
+    player.Color  = color;
     return player;
   };
+
+  $scope.getPlayer = getPlayer;
 
   function getPlayer() {
     if (position <= ($scope.Players.length - 1) ) {
@@ -43,14 +47,10 @@ function tictactoeCtrl ($scope, tictactoe) {
     }
   }
 
-  function createIcon (player) {
-    return [player.Icon , player.Collor].join(" ");
-  }
 
   function callBack() {
     if($scope.board.winner){
       $scope.board.winner.Score++; 
-      alert($scope.board.winner.Name);
     }
   }
 }

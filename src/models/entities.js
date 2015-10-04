@@ -27,8 +27,11 @@ var entities = function () {
   function Player () {
     this.Name   = null;
     this.Icon   = null;
-    this.Collor = null;
+    this.Color = null;
     this.Score  = 0;
+    this.getIcon = function () {
+      return [this.Icon , this.Color].join(" ");
+    }
   }
 
   Player.prototype.constructor = Player;

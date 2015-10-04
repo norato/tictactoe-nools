@@ -1,0 +1,39 @@
+<div ng-if="winner"  class="row">
+  <div class="col-xs-6 col-xs-offset-2">
+    <div class="row winner">
+      <i class="col-xs-4 col-xs-offset-1 fa-3x" ng-class="winner.getIcon()"></i>
+      <h2 class="col-xs-6" >Wins!!!</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-10">
+    <div class="col-xs-4 text-center">
+      <h4 ng-class="players[0].Color" class="player">Player
+        <i ng-class="players[0].getIcon()"></i>
+      </h4>
+      <h4 >{{players[0].Score}}</h4>
+    </div>
+    <div class="col-xs-4 text-center">
+      <h4>Ties</h4>
+      <h4>0</h4>
+    </div>
+    <div class="col-xs-4 text-center">
+      <h4 ng-class="players[1].Color" class="player" >Player
+        <i ng-class="players[1].getIcon()"></i>
+      </h4>
+      <h4>{{players[1].Score}}</h4>
+    </div>
+  </div>
+  <div class="col-xs-1 actions">
+    <div class="row">
+        <i class="fa fa-refresh"
+            ng-click="action()">
+        </i>
+      </div>
+    <div class="row">
+      <i class="fa fa-user"></i>
+    </div>
+  </div>
+</div>
